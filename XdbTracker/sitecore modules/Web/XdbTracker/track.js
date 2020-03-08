@@ -1,6 +1,10 @@
 ﻿xdbTracker = function () {
-    function triggerEvent(id, data) {
-        sendToServer(id, { "id": id, "data": data });
+    function triggerEvent(id, data, itemid) {
+        if (itemid) {
+            sendToServer(id, { "id": id, "data": data, "itemid": itemid });
+        } else {
+            sendToServer(id, { "id": id, "data": data });
+        }
     }
     function triggerOutcome(id, currency, value, type) {
         sendToServer(id, { "id": id, "outcomeCurrency": currency, "outcomeValue": value, "outcomeType": type, "type": "outcome" });

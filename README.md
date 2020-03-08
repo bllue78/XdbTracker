@@ -21,10 +21,29 @@ Usage is simple:
 
 ## Setup
 
+### General setup
+
+- Copy binaries and files from the [Release ZIP](https://github.com/lowedown/XdbTracker/releases/latest) folder to your webroot or integrate them into your 
+uild
+
 - Reference track.min.js in your layout (its only ~380bytes) 
 	```<script src="/sitecore modules/web/xdbtracker/track.min.js"></script> ```
-- Copy binaries and files from the [Release ZIP](https://github.com/lowedown/XdbTracker/releases/latest) folder to your webroot or integrate them into your build
+	
+	NOTE: The script can also be included through Tag Manager. See the below.
 
+### Setup using Google Tag Manager
+
+#### Install Templates
+In Google Tag Manager, navigate to _Templates > New > Import_ and select the _Sitecore xDB Tracker Trigger Goal or Page Event.tpl_ file included in the xDB Tracker release.
+
+Do the same for the _Trigger Outcome_ template if you wish to use it.
+
+#### Add Script to page
+If the script hasn't already been added, create a tag and choose _Custom HTML. Add the following to the HTML field:
+
+```<script src="/sitecore modules/web/xdbtracker/track.min.js"></script> ```
+
+Choose All Pages as trigger and configure any exceptions that may apply.
 
 ## Technical details
 The tiny track.min.js will POST events to the track handler /sitecore modules/web/xdbtracker/track.ashx as they are triggered. Track.ashx is session-aware and will automatically assign the events and outcomes to the current interaction and page.

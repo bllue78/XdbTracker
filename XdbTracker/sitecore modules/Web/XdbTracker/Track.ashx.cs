@@ -68,6 +68,7 @@ namespace XdbTracker.sitecore_modules.Web.XdbTracker
                         {
                             Data = data?.Data,
                             Text = data?.Text,
+                            
                         };
 
                     if (Guid.TryParse(data.ItemId, out Guid itemId))
